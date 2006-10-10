@@ -1,0 +1,22 @@
+--- herrie-0.6/src/gui/gui_internal.h~	2006-10-10 11:02:36.000000000 +0200
++++ herrie-0.6/src/gui/gui_internal.h	2006-10-10 13:40:58.000000000 +0200
+@@ -32,7 +32,7 @@
+ #ifndef _GUI_GUI_INTERNAL_H_
+ #define _GUI_GUI_INTERNAL_H_
+ 
+-#include <curses.h>
++#include<ncurses/curses.h>
+ 
+ #include <audio/audio.h>
+ #include <gui/gui.h>
+--- herrie-0.6/src/config.c~	2006-10-10 11:02:36.000000000 +0200
++++ herrie-0.6/src/config.c	2006-10-10 13:43:51.000000000 +0200
+@@ -33,7 +33,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
+-#include <curses.h>
++#include<ncurses/curses.h>
+ 
+ #include <config.h>
+ #include <gui/gui.h>
