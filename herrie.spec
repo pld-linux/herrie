@@ -3,7 +3,7 @@ Summary(pl):	Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	0.6
 Release:	1
-License:	GPL
+License:	BSD
 Group:		Applications/Sound
 Source0:	http://www.il.fontys.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
 # Source0-md5:	579231dc7bfa660cab702aef02921480
@@ -38,14 +38,11 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %patch1 -p1
 
 %build
-cd src/
-%{__make}
+%{__make} -C src/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} -C src/ install \
         DESTDIR=$RPM_BUILD_ROOT
@@ -57,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO
+%doc COPYING ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/%{name}.1*
