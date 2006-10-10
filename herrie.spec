@@ -4,7 +4,7 @@ Name:		herrie
 Version:	0.6
 Release:	1
 License:	GPL
-Group:		Applications
+Group:		Applications/Sound
 Source0:	http://www.il.fontys.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
 # Source0-md5:	579231dc7bfa660cab702aef02921480
 Patch0:		%{name}-makefile.patch
