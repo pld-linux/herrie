@@ -1,0 +1,27 @@
+--- herrie-0.6/src/GNUmakefile~	2006-10-10 11:02:36.000000000 +0200
++++ herrie-0.6/src/GNUmakefile	2006-10-10 21:12:44.000000000 +0200
+@@ -26,7 +26,7 @@
+ # $Id$
+ # 
+ 
+-PREFIX?=	/usr/local
++PREFIX?=	/usr
+ OS?=		$(shell uname)
+ MANDIR=		$(PREFIX)/share/man
+ 
+@@ -156,11 +156,11 @@
+ all: herrie$(BINARY_EXT) herrie.1 $(LANGUAGES)
+ 
+ install: all
+-	install -s herrie$(BINARY_EXT) $(PREFIX)/bin/herrie$(BINARY_EXT)
+-	install -m 444 herrie.1 $(MANDIR)/man1/herrie.1
++	install -s herrie$(BINARY_EXT) $(DESTDIR)$(PREFIX)/bin/herrie$(BINARY_EXT)
++	install -m 444 herrie.1 $(DESTDIR)$(MANDIR)/man1/herrie.1
+ ifndef NO_TRANS
+-	mkdir -p $(TRANSDIR)/nl/LC_MESSAGES
+-	install -m 444 lang/nl.mo $(TRANSDIR)/nl/LC_MESSAGES/herrie.mo
++	mkdir -p $(DESTDIR)$(TRANSDIR)/nl/LC_MESSAGES
++	install -m 444 lang/nl.mo $(DESTDIR)$(TRANSDIR)/nl/LC_MESSAGES/herrie.mo
+ endif
+ 
+ clean:
