@@ -36,4 +36,4 @@ diff -urN herrie-0.6/src/GNUmakefile herrie-0.6.new/src/GNUmakefile
  
  herrie$(BINARY_EXT): $(HERRIE_OBJ)
 -	$(CC) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
-+	$(CC) $(OPTLDFLAGS) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
++	$(CC) $(OPTLDFLAGS) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LIBS)
