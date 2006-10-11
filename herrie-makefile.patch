@@ -1,6 +1,7 @@
---- herrie-0.6/src/GNUmakefile~	2006-10-10 11:02:36.000000000 +0200
-+++ herrie-0.6/src/GNUmakefile	2006-10-10 21:12:44.000000000 +0200
-@@ -26,7 +26,7 @@
+diff -urN herrie-0.6/src/GNUmakefile herrie-0.6.new/src/GNUmakefile
+--- herrie-0.6/src/GNUmakefile	2006-10-10 11:02:36.000000000 +0200
++++ herrie-0.6.new/src/GNUmakefile	2006-10-11 13:00:33.000000000 +0200
+@@ -26,10 +26,12 @@
  # $Id$
  # 
  
@@ -9,7 +10,12 @@
  OS?=		$(shell uname)
  MANDIR=		$(PREFIX)/share/man
  
-@@ -156,11 +156,11 @@
++CFLAGS+=	$(OPTFLAGS)
++
+ CFLAGS+=	$(shell pkg-config --cflags glib-2.0 gthread-2.0) \
+ 		-I$(PREFIX)/include
+ LIBS=		$(shell pkg-config --libs glib-2.0 gthread-2.0) \
+@@ -156,11 +158,11 @@
  all: herrie$(BINARY_EXT) herrie.1 $(LANGUAGES)
  
  install: all
@@ -25,3 +31,9 @@
  endif
  
  clean:
+@@ -172,4 +174,4 @@
+ 	msgfmt -o $@ $<
+ 
+ herrie$(BINARY_EXT): $(HERRIE_OBJ)
+-	$(CC) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
++	$(CC) $(OPTLDFLAGS) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
