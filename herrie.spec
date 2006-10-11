@@ -38,7 +38,10 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %patch1 -p1
 
 %build
-%{__make} -C src/
+%{__make} -C src/ \
+	CC="%{__cc}" \
+	OPTFLAGS="%{rpmcflags}" \
+	OPTLDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
