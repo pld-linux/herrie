@@ -12,7 +12,7 @@ Patch1:		%{name}-curses.patch
 URL:		http://g-rave.nl/projects/herrie/
 BuildRequires:  curl-devel
 BuildRequires:  gettext-devel
-BuildRequires:	glib-devel
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libao-devel
 BuildRequires:	libid3tag-devel
 BuildRequires:	libmad-devel
@@ -20,6 +20,7 @@ BuildRequires:	libsndfile-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +30,7 @@ manager and playlist interface and supports a number of file formats
 
 %description -l pl
 Herrie jest konsolowym odtwarzaczem muzyki. Posiada on ekran
-podzielony na mened¿era plików oraz interfejs playlisty. Wspomaga on
+podzielony na zarz±dcê plików oraz interfejs playlisty. Obs³uguje
 wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %prep
@@ -38,7 +39,7 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %patch1 -p1
 
 %build
-%{__make} -C src/ \
+%{__make} -C src \
 	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags}" \
 	OPTLDFLAGS="%{rpmldflags}"
