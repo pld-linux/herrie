@@ -10,8 +10,8 @@ Source0:	http://www.il.fontys.nl/~ed/projects/herrie/distfiles/%{name}-%{version
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-curses.patch
 URL:		http://g-rave.nl/projects/herrie/
-BuildRequires:  curl-devel
-BuildRequires:  gettext-devel
+BuildRequires:	curl-devel
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libao-devel
 BuildRequires:	libid3tag-devel
