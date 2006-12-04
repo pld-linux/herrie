@@ -1,12 +1,12 @@
 Summary:	A command line music player
 Summary(pl):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	1.0
+Version:	1.0.1
 Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://www.il.fontys.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
-# Source0-md5:	4c5e053f2daba89f31dce6cbe40d162f
+# Source0-md5:	5304be1560bab1b0b06a1acd63953afe
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-curses.patch
 URL:		http://g-rave.nl/projects/herrie/
