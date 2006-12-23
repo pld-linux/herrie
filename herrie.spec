@@ -5,7 +5,7 @@ Version:	1.1
 Release:	1
 License:	BSD
 Group:		Applications/Sound
-Source0:	http://www.il.fontys.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
+Source0:	http://www.stack.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
 # Source0-md5:	1c28876ae36737ca3f3d6d2d2f037435
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-curses.patch
