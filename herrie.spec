@@ -1,15 +1,14 @@
 Summary:	A command line music player
 Summary(pl):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	1.1
+Version:	1.2
 Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://www.stack.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
-# Source0-md5:	1c28876ae36737ca3f3d6d2d2f037435
+# Source0-md5:	78b6dfe16db6c1f2e5e060e97503e1ec
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-curses.patch
-Patch2:		%{name}-gui.patch
 URL:		http://g-rave.nl/projects/herrie/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -38,10 +37,9 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
-%{__make} -C src \
+%{__make} \
 	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags}" \
 	OPTLDFLAGS="%{rpmldflags}"
@@ -50,7 +48,7 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-%{__make} -C src/ install \
+%{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
@@ -60,6 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README TODO
+%doc COPYING ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/%{name}.1*
