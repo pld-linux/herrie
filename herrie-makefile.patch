@@ -1,42 +1,38 @@
---- herrie-1.1/src/GNUmakefile~	2006-12-23 00:02:27.000000000 +0100
-+++ herrie-1.1/src/GNUmakefile	2006-12-23 00:02:21.000000000 +0100
-@@ -28,7 +28,7 @@
+--- herrie-1.2/GNUmakefile~	2007-01-01 16:28:38.000000000 +0100
++++ herrie-1.2/GNUmakefile	2007-01-02 00:26:38.000000000 +0100
+@@ -26,7 +26,7 @@
  
- VERSION=	1.1
+ VERSION=	1.2
  
 -PREFIX?=	/usr/local
 +PREFIX?=	/usr
- OS=		$(shell uname)
+ OS:=		$(shell uname)
  MANDIR=		$(PREFIX)/share/man
  TRANSDIR=	$(PREFIX)/share/locale
 @@ -118,6 +118,8 @@
- CFLAGS+=	-Wall -Werror -Wmissing-prototypes
+ endif
  endif
  
-+CFLAGS+=	$(OPTFLAGS)
++CFLAGS+=       $(OPTFLAGS)
 +
+ # libao dies with -Wstrict-prototypes - fixed in trunk
  CFLAGS+=	$(shell pkg-config --cflags glib-2.0 gthread-2.0) \
- 		-I$(PREFIX)/include -I. $(BUILD_OPTS) \
- 		-DAPP_NAME=\"herrie\" -DAPP_VERSION=\"$(VERSION)\" \
-@@ -136,11 +138,11 @@
- all: herrie$(BINARY_EXT) herrie.1 $(LANGUAGES)
+ 		-I$(PREFIX)/include -DAUDIO_OUTPUT=\"$(AUDIO_OUTPUT)\" \
+@@ -136,13 +138,13 @@
+ all: herrie$(BINARY_EXT) herrie.1 $(LOCALES:%=%.mo)
  
  install: all
 -	install -s herrie$(BINARY_EXT) $(PREFIX)/bin/herrie$(BINARY_EXT)
 -	install -m 444 herrie.1 $(MANDIR)/man1/herrie.1
 +	install -s herrie$(BINARY_EXT) $(DESTDIR)$(PREFIX)/bin/herrie$(BINARY_EXT)
 +	install -m 444 herrie.1 $(DESTDIR)$(MANDIR)/man1/herrie.1
- ifndef NO_TRANS
--	mkdir -p $(TRANSDIR)/nl/LC_MESSAGES
--	install -m 444 lang/nl.mo $(TRANSDIR)/nl/LC_MESSAGES/herrie.mo
-+	mkdir -p $(DESTDIR)$(TRANSDIR)/nl/LC_MESSAGES
-+	install -m 444 lang/nl.mo $(DESTDIR)$(TRANSDIR)/nl/LC_MESSAGES/herrie.mo
- endif
+ 	$(foreach lang,$(LOCALES), \
+-		mkdir -p $(TRANSDIR)/$(lang)/LC_MESSAGES)
++		mkdir -p $(DESTDIR)$(TRANSDIR)/$(lang)/LC_MESSAGES)
+ 	$(foreach lang,$(LOCALES), \
+ 		install -m 444 $(lang).mo \
+-		    $(TRANSDIR)/$(lang)/LC_MESSAGES/herrie.mo)
++		    $(DESTDIR)$(TRANSDIR)/$(lang)/LC_MESSAGES/herrie.mo)
  
  clean:
-@@ -152,4 +154,4 @@
- 	msgfmt -o $@ $<
- 
- herrie$(BINARY_EXT): $(HERRIE_OBJ)
--	$(CC) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
-+	$(CC) $(OPTLDFLAGS) -o herrie$(BINARY_EXT) $(HERRIE_OBJ) $(LDFLAGS)
+ 	rm -f herrie$(BINARY_EXT) *.o *.mo *.core
