@@ -1,14 +1,13 @@
 Summary:	A command line music player
 Summary(pl):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	1.3
+Version:	1.4
 Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://www.stack.nl/~ed/projects/herrie/distfiles/%{name}-%{version}.tar.gz
-# Source0-md5:	39402125831e5ffbad29d90790048bad
-Patch0:		%{name}-makefile.patch
-Patch1:		%{name}-curses.patch
+# Source0-md5:	1ef247bfb75fdac7844773e4a3f72650
+Patch0:		%{name}-curses.patch
 URL:		http://g-rave.nl/projects/herrie/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -21,6 +20,7 @@ BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,13 +36,12 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+%{__sed} -i 's@DESTROOT@DESTDIR@' configure
+%{__sed} -i 's@CC=gcc@CC=%{__cc}@' configure
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	OPTFLAGS="%{rpmcflags}" \
-	OPTLDFLAGS="%{rpmldflags}"
+./configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
