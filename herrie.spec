@@ -1,5 +1,5 @@
 Summary:	A command line music player
-Summary(pl):	Konsolowy odtwarzacz muzyki
+Summary(pl.UTF-8):   Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	1.4
 Release:	1
@@ -28,10 +28,10 @@ Herrie is a command line music player. It has a split-screen file
 manager and playlist interface and supports a number of file formats
 (MP3, Ogg Vorbis, wave, FLAC, etc).
 
-%description -l pl
+%description -l pl.UTF-8
 Herrie jest konsolowym odtwarzaczem muzyki. Posiada on ekran
-podzielony na zarz±dcê plików oraz interfejs playlisty. Obs³uguje
-wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
+podzielony na zarzÄ…dcÄ™ plikÃ³w oraz interfejs playlisty. ObsÅ‚uguje
+wiele formatÃ³w plikÃ³w (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %prep
 %setup -q
