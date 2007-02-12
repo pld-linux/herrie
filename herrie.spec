@@ -1,5 +1,5 @@
 Summary:	A command line music player
-Summary(pl.UTF-8):   Konsolowy odtwarzacz muzyki
+Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	1.4
 Release:	1
