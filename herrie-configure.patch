@@ -1,0 +1,11 @@
+--- herrie-1.5.1/configure~	2007-03-10 11:53:01.000000000 +0100
++++ herrie-1.5.1/configure	2007-03-11 10:03:18.000000000 +0100
+@@ -42,7 +42,7 @@
+ CFG_SNDFILE=yes
+ CFG_TRANS='nl tr'
+ CFG_VORBIS=yes
+-CFG_CURSES_HEADER=ncurses
++CFG_CURSES_HEADER=ncurses/ncurses
+ CFG_CURSES_LIB=ncurses
+ 
+ # Operating system defaults
