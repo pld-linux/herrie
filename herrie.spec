@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT/etc/herrie.conf.sample $RPM_BUILD_ROOT/etc/herrie.conf
+:> $RPM_BUILD_ROOT/etc/herrie.conf
 
 %find_lang %{name}
 
@@ -57,6 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.conf
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README *.sample
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/%{name}.1*
