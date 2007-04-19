@@ -36,9 +36,9 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %prep
 %setup -q
-%{__sed} -i 's@CC=gcc@CC=%{__cc}@' configure
 
 %build
+CC="%{__cc}" \
 ./configure
 %{__make}
 
