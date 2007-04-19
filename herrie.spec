@@ -21,7 +21,6 @@ BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,10 +43,11 @@ CC="%{__cc}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_sysconfdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT/etc/herrie.conf.sample $RPM_BUILD_ROOT/etc/herrie.conf
 
 %find_lang %{name}
 
@@ -56,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.conf
 %doc COPYING ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/%{name}.1*
