@@ -7,7 +7,6 @@ License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
 # Source0-md5:	eb921bf87856d7b2cf86da2d303e85bf
-Patch0:		%{name}-configure.patch
 URL:		http://g-rave.nl/projects/herrie/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -37,7 +36,6 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %prep
 %setup -q
-%patch0 -p1
 %{__sed} -i 's@DESTROOT@DESTDIR@' configure
 %{__sed} -i 's@CC=gcc@CC=%{__cc}@' configure
 
