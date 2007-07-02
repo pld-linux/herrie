@@ -7,7 +7,7 @@ License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
 # Source0-md5:	99a9c9944108d011ef092bb87dea8c33
-URL:		http://g-rave.nl/projects/herrie/
+URL:		http://herrie.info/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.0
