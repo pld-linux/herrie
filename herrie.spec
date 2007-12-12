@@ -1,12 +1,12 @@
 Summary:	A command line music player
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	1.8.4
-Release:	2
+Version:	1.9
+Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
-# Source0-md5:	085d40be1b707c2ab7168674ebd9f3d0
+# Source0-md5:	c4d7ca6248f4b3594b0e5fbba5c9f720
 URL:		http://herrie.info/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -21,6 +21,7 @@ BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
+BuildRequires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
