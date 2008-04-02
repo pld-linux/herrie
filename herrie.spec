@@ -1,12 +1,12 @@
 Summary:	A command line music player
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	1.9.2
+Version:	2.0.1
 Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
-# Source0-md5:	aef6c624abf78f05f2291d1ad1645962
+# Source0-md5:	75df643f08ef35de2b5605158e889957
 URL:		http://herrie.info/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -39,6 +39,8 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %build
 CC="%{__cc}" \
+LDFLAGS="%{rpmldflags}" \
+CFLAGS="%{rpmcflags}" \
 ./configure
 %{__make}
 
