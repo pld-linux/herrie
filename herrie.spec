@@ -1,12 +1,16 @@
+#
+# TODO:
+# - create some bconds for optional stuff
+#
 Summary:	A command line music player
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
-Version:	2.0.2
+Version:	2.2
 Release:	1
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
-# Source0-md5:	71ca7d21b2bcfbffa4976177f6836aa6
+# Source0-md5:	88832b10298ab89473730eb0c93b6ddf
 URL:		http://herrie.info/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -16,7 +20,7 @@ BuildRequires:	libid3tag-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libmodplug-devel
 BuildRequires:	libsndfile-devel
-BuildRequires:	libspiff-devel
+BuildRequires:	libspiff-devel >= 1.0.0
 BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
