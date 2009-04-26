@@ -3,6 +3,7 @@
 # - create some bconds for optional stuff
 #
 Summary:	A command line music player
+Summary(hu.UTF-8):	Parancssoros zenelejátszó
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	2.2
@@ -32,6 +33,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Herrie is a command line music player. It has a split-screen file
 manager and playlist interface and supports a number of file formats
 (MP3, Ogg Vorbis, wave, FLAC, etc).
+
+%description -l hu.UTF-8
+Herrie egy parancssoros zenelejátszó. Osztott képernyős fájlkezelője
+és lejátszó-lista felülete van, és sokféle formátumot támogat (MP3,
+Ogg Vorbis, wave, FLAC, stb.).
 
 %description -l pl.UTF-8
 Herrie jest konsolowym odtwarzaczem muzyki. Posiada on ekran
