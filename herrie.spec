@@ -7,7 +7,7 @@ Summary(hu.UTF-8):	Parancssoros zenelejátszó
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	2.2
-Release:	3
+Release:	4
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
