@@ -21,12 +21,12 @@ BuildRequires:	libid3tag-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libmodplug-devel
 BuildRequires:	libsndfile-devel
-BuildRequires:	libspiff-devel >= 1.0.0
 BuildRequires:	libvorbis-devel
+BuildRequires:	libxspf-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
-BuildRequires:	sed
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,6 +47,10 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 %prep
 %setup -q
 
+# spiff -> xspf
+%{__sed} -i 's,spiff,xspf,g' `grep -r -l 'spiff' .`
+%{__sed} -i 's,SPIFF,XSPF,g' `grep -r -l 'SPIFF' .`
+
 %build
 CC="%{__cc}" \
 LDFLAGS="%{rpmldflags}" \
@@ -60,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-:> $RPM_BUILD_ROOT/etc/herrie.conf
+:> $RPM_BUILD_ROOT%{_sysconfdir}/herrie.conf
 
 %find_lang %{name}
 
