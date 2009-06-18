@@ -22,7 +22,7 @@ BuildRequires:	libmad-devel
 BuildRequires:	libmodplug-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libvorbis-devel
-BuildRequires:	libxspf-devel
+BuildRequires:	libxspf-devel >= 1.2.0
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
