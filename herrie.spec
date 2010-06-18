@@ -7,11 +7,12 @@ Summary(hu.UTF-8):	Parancssoros zenelejátszó
 Summary(pl.UTF-8):	Konsolowy odtwarzacz muzyki
 Name:		herrie
 Version:	2.2
-Release:	4
+Release:	5
 License:	BSD
 Group:		Applications/Sound
 Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
 # Source0-md5:	88832b10298ab89473730eb0c93b6ddf
+Patch0:		%{name}-link.patch
 URL:		http://herrie.info/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -46,6 +47,7 @@ wiele formatów plików (MP3, Ogg Vorbis, wave, FLAC itp).
 
 %prep
 %setup -q
+%patch0 -p1
 
 # spiff -> xspf
 %{__sed} -i 's,spiff,xspf,g' `grep -r -l 'spiff' .`
