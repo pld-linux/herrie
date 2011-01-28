@@ -14,6 +14,7 @@ Source0:	http://herrie.info/distfiles/%{name}-%{version}.tar.bz2
 # Source0-md5:	88832b10298ab89473730eb0c93b6ddf
 Patch0:		%{name}-link.patch
 URL:		http://herrie.info/
+BuildRequires:	alsa-lib-devel
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.0
