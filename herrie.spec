@@ -16,7 +16,7 @@ Patch0:		%{name}-link.patch
 URL:		http://herrie.info/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libao-devel
 BuildRequires:	libid3tag-devel
